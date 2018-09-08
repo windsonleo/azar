@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+
+		<head th:replace="fragmentos/head :: head-css">
+		
+		</head>
+		
+			<title>Menu</title>
+
+				<body>
+			
+					<div class="sidebar" data-color="blue" data-image="../static/img/sidebar-3.jpg" th:data-image="@{img/sidebar-1.jpg}" th:fragment="side-menu" >
+			            <!--
+			        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+			
+			        Tip 2: you can also add an image using data-image tag
+			    -->
+			            <div class="logo">
+			                <a href="http://www.creative-tim.com" class="simple-text">
+			                   <i class="fa fa-paw"></i> Tecsoluction
+			                </a>
+			            </div>
+			            <div class="sidebar-wrapper">
+			                <ul class="nav" id="menu">
+			                    <li class="">
+			                        <a th:href="@{/usuario/home}">
+			                            <i class="material-icons">dashboard</i>
+			                            <p>Home</p>
+			                        </a>
+			                    </li>
+			                    <li class="">
+			                        <a th:href="@{/usuario/profile}" >
+			                            <i class="material-icons">person</i>
+			                            <p>Perfil</p>
+			                        </a>
+			                    </li>
+
+			                    <li class="">
+			                        <a th:href="@{/login}" >
+			                            <i class="material-icons">library_books</i>
+			                            <p>Login</p>
+			                        </a>
+			                    </li>
+			                    
+			                    <li class="">
+			                      <a th:href="@{/lotofacil/movimentacao}" >
+			                    	<p>
+			                      
+<!--                                     <img alt="" src="img/lotofacilf.png" class="material-icons"></img> -->
+			                         <i class="material-icons">favorite</i>
+			                            
+			                       
+			                        LotoFacil </p>
+			                         </a>
+			                    </li>
+			                    
+
+			                    
+			                    <li class="">
+			                        <a th:href="@{/megasena/movimentacao}" >
+			                        <p>
+<!--                                     <img alt="" src="img/megasenaf.png" class="material-icons"></img> -->
+			                         			                         <i class="material-icons">favorite</i>
+			                         
+			                         MegaSena</p>
+			                       
+			                        </a>
+			                    </li>
+			                    
+			                    
+			                     <li class="">
+			                        <a th:href="@{/lotomania/movimentacao}" >
+			                        <p>
+<!--                                     <img alt="" src="img/lotomaniaf.png" class="material-icons"></img> -->
+			                          	<i class="material-icons" >favorite</i>
+			                          
+			                          LotoMania</p>
+			                        </a>
+			                    </li>
+			                    
+			                    
+			                   <li class="">
+			                        <a th:href="@{/jogobicho/movimentacao}" >
+			                        <p>
+                                    <i class="material-icons">pets</i>
+			                          Bicho</p>
+			                        </a>
+			                    </li>
+			                </ul>
+			            </div>
+			        </div>
+			  				
+				</body>
+
+		</html>
+
+

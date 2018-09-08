@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragmentos/head :: head-css">
+</head>
+    <title>Login</title>
+
+	<body>
+			
+			<div class="wrapper">
+	
+			    <div th:replace="fragmentos/side-menu :: side-menu">
+		    	</div>
+
+ 			<div class="main-panel">
+
+			  	<div th:replace="fragmentos/top-nav :: top-nav">
+				
+				</div>
+			
+			<div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+
+
+        <div class="col-md-10">
+                            <div class="card">
+                                <div class="card-header" data-background-color="blue">
+                                    <h4 class="title">Autorizacao</h4>
+                                    <p class="category"> Somente Usuarios Cadastrados </p>
+                                </div>
+          <div class="card-content table-responsive">
+                                
+          <section class="login" >
+			<form method="post" th:object="${usuario}" th:action="@{/login}" role="form" >
+<!--               <h3>Autorizacao</h3> -->
+              <div>
+		    	<input type="text" id="username" name="username" class="form-control"
+		           th:value="${username}" placeholder="Digite seu Usuario"/>
+		           
+		      </div>
+              <div>
+		    	<input type="password" id="senha" name="senha" class="form-control"
+		           th:value="${senha}" placeholder="Digite sua Senha"/>
+		      </div>
+		      
+              <div>
+		   		 <button type="submit" value="login" class="btn btn-success">Entrar</button>
+                	<span class=""><a class="reset_pass" th:href="@{/usuario/lost}"><small>Perdeu sua Senha?</small></a></span>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">Voce e novo por aqui?
+                  <a th:href="@{/usuario/cadastro}" class="to_register"> Crie sua Conta </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+
+              </div>
+            </form>
+            
+            <form th:action="@{/signin/facebook}" method="POST">
+    <input type="hidden" name="scope" value="public_profile" />
+    <input type="submit" value="Login using Facebook"/>
+</form>
+            
+          </section>
+        </div>
+        
+        
+      </div>
+      
+
+
+      
+<!--       <footer th:replace="fragmentos/footer :: footer"> -->
+<!--       </footer> -->
+      
+
+      
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      
+            <div th:replace="fragmentos/footer :: script">
+      </div>
+      
+  </body>
+  
+
+
+
+</html>

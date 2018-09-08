@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="fragmentos/head :: head-css">
+
+</head>
+
+    <title>Cadastro Mega Sena</title>
+
+
+
+<body onload="draw()" bgcolor="white">
+
+ <div class="wrapper">
+	
+		    <div th:replace="fragmentos/side-menu :: side-menu">
+	    	</div>
+
+ <div class="main-panel">
+
+			  	<div th:replace="fragmentos/top-nav :: top-nav">
+				
+				</div>
+	
+		 <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header" data-background-color="blue">
+                                    <h4 class="title"> Cadastro Mega Sena</h4>
+									
+									
+									<div sec:authorize="hasRole('ROLE_ADM')">
+									<span class="text-danger">  This content is only shown to administrators.</span>
+									   <span class="pull-right"> <a href="#myAlert" data-toggle="modal" > <i class="material-icons" title="inserir Resultado Bicho">mode edit</i> </a> </span>
+									
+									</div> 
+                                    <p class="category"> Preencha os Dados </p>
+                               
+           <div id="myAlert" class="modal fade">
+<!-- 	            <div class="modal-dialog"> -->
+<!-- 	               <div class="modal-content"> -->
+		              <div class="modal-header">
+						
+						 <div class="card">  
+		              
+						         	<div class="card-header" data-background-color="blue">
+                                    <h4 class="title">Mega Sena </h4>
+                                     
+                                    <p class="category defaut"> Adicioanar Resultado </p>
+                                   
+                                   
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+                                   
+                                    </div>
+								              
+						<div class="modal-body">
+								                
+							<div class="table-responsive">
+                                   
+                                   
+           <form  class="form-horizontal" th:action="@{/megasena/add}" ModelAttribute="megasena" method="POST" >
+		 
+		              <div class="control-group">
+		                <label class="control-label">Id</label>
+		                <div class="controls">
+								<input id="id" name="id" class="form-control" type="number" checked="${megasena.id}"/>
+						
+						
+		                </div>
+		              </div>
+				              
+		               <div class="control-group">
+		                <label class="control-label">Data</label>
+		                <div class="controls">
+									<input id="data" name="data" class="form-control" type="text" th:value="${megasena.data}" placeholder="Digite a Data"/>
+
+		                </div>
+		              </div>             
+			
+		              <div class="control-group">
+		                <label class="control-label">Hora</label>
+		                <div class="controls">
+									<input id="hora" name="hora" class="form-control" type="time" value="${megasena.hora}" placeholder="Digite a Senha"/>					
+						
+						
+		                </div>
+		              </div>
+				
+				
+				
+		              <div class="control-group">
+		                <label class="control-label">Banca</label>
+		                		<div class="controls">
+			 							<select id="banca" name="banca"  class="form-control" >
+			                                  <optgroup label="Banca do Sorteio">
+				           				
+				           					<option value="${megasena.banca}"></option>
+				           				
+					           				
+					           			   		<option th:each="banca: ${bancaList}" class="text-muted">
+					           			
+					           					<option th:value="${banca}"><label class="badge" th:utext="${banca}"> banca</label> </option>
+					           				      				
+					           				</option>
+					           				
+				               			 </optgroup>
+			                    </select>			
+						
+		                </div>
+		              </div>
+		              
+		              
+		             <div class="control-group">
+		                <label class="control-label">1º Premio</label>
+		                <div class="controls">
+						
+									<input id="primeiropremio" name="primeiropremio" class="form-control" type="text" th:value="${megasena.primeiropremio}" placeholder="Digite o Primeiro Premio" />
+						
+		                </div>
+		              </div> 
+		              
+		             <div class="control-group">
+		                <label class="control-label">2º Premio</label>
+		                <div class="controls">
+						
+									<input id="segundopremio" name="segundopremio" class="form-control" type="text" th:value="${megasena.segundopremio}" placeholder="Digite o Segundo Premio" />
+						
+		                </div>
+		              </div> 
+		              
+		             <div class="control-group">
+		                <label class="control-label">3º Premio</label>
+		                <div class="controls">
+						
+									<input id="terceiropremio" name="terceiropremio" class="form-control" type="text" th:value="${megasena.terceiropremio}" placeholder="Digite o Terceiro Premio" />
+						
+		                </div>
+		              </div> 
+		              
+		              
+		             <div class="control-group">
+		                <label class="control-label">4º Premio</label>
+		                <div class="controls">
+						
+									<input id="quartopremio" name="quartopremio" class="form-control" type="text" th:value="${megasena.quartopremio}" placeholder="Digite o Quarto Premio" />
+						
+		                </div>
+		              </div> 
+		              
+		              
+		              
+		             <div class="control-group">
+		                <label class="control-label">5º Premio</label>
+		                <div class="controls">
+						
+									<input id="quintopremio" name="quintopremio" class="form-control" type="text" th:value="${megasena.quintopremio}" placeholder="Digite Quinto Premio" />
+						
+		                </div>
+		              </div> 
+		              
+		              						 	 
+				                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							
+									<div class="form-actions">
+										<button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
+										<a href='javascript:history.back(1)' class="btn btn-sm btn-default" >Voltar</a>
+									</div>
+							
+							</form>
+                                   
+                                   
+                                   
+                                   
+                                   
+								           </div>     
+								                
+								              </div>
+								              
+
+								             </div>
+								             </div>
+           
+                                    </div>                               
+                               
+                                </div>                        
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+         
+         
+         						<footer th:replace="fragmentos/footer :: footer">
+						
+						</footer>
+         
+         
+            </div>
+						
+
+
+
+
+					</div>
+
+
+				
+				<div th:replace="fragmentos/footer :: script" style="display:none;"></div>
+				
+		</body>
+
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="fragmentos/head :: head-css">
+
+</head>
+
+    <title>Cadastro Jogo Bicho</title>
+
+
+
+<body onload="draw()" bgcolor="white">
+
+ <div class="wrapper">
+	
+		    <div th:replace="fragmentos/side-menu :: side-menu">
+	    	</div>
+
+ <div class="main-panel">
+
+			  	<div th:replace="fragmentos/top-nav :: top-nav">
+				
+				</div>
+	
+		 <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header" data-background-color="blue">
+                                    <h4 class="title"> Cadastro Jogo Bicho</h4>
+									
+									
+									<div sec:authorize="hasRole('ROLE_ADM')">
+									<span class="text-danger">  This content is only shown to administrators.</span>
+									   <span class="pull-right"> <a href="#myAlert" data-toggle="modal" > <i class="material-icons" title="inserir Resultado Bicho">mode edit</i> </a> </span>
+									
+									</div> 
+                                    <p class="category"> Preencha os Dados </p>
+                               
+           <div id="myAlert" class="modal fade">
+<!-- 	            <div class="modal-dialog"> -->
+<!-- 	               <div class="modal-content"> -->
+		              <div class="modal-header">
+						
+						 <div class="card">  
+		              
+						         	<div class="card-header" data-background-color="blue">
+                                    <h4 class="title">Jogo Bicho </h4>
+                                     
+                                    <p class="category defaut"> Adicioanar Resultado </p>
+                                   
+                                   
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+                                   
+                                    </div>
+								              
+						<div class="modal-body">
+								                
+							<div class="table-responsive">
+                                   
+                                   
+           <form  class="form-horizontal" th:action="@{/jogobicho/add}" ModelAttribute="jogobicho" method="POST" >
+		 
+		              <div class="control-group">
+		                <label class="control-label">Id</label>
+		                <div class="controls">
+								<input id="id" name="id" class="form-control" type="number" checked="${jogobicho.id}"/>
+						
+						
+		                </div>
+		              </div>
+				              
+		               <div class="control-group">
+		                <label class="control-label">Data</label>
+		                <div class="controls">
+									<input id="data" name="data" class="form-control" type="text" th:value="${jogobicho.data}" placeholder="Digite a Data"/>
+
+		                </div>
+		              </div>             
+			
+		              <div class="control-group">
+		                <label class="control-label">Hora</label>
+		                <div class="controls">
+									<input id="hora" name="hora" class="form-control" type="time" value="${jogobicho.hora}" placeholder="Digite a Senha"/>					
+						
+						
+		                </div>
+		              </div>
+				
+				
+				
+		              <div class="control-group">
+		                <label class="control-label">Banca</label>
+		                		<div class="controls">
+			 							<select id="banca" name="banca"  class="form-control" >
+			                                  <optgroup label="Banca do Sorteio">
+				           				
+				           					<option value="${jogobicho.banca}"></option>
+				           				
+					           				
+					           			   	<option th:each="banca: ${bancaList}" class="text-muted">
+					           			
+					           					<option th:value="${banca}"><label class="badge" th:utext="${banca}"> banca</label> </option>
+					           				      				
+					           				</option>
+					           				
+				               			 </optgroup>
+			                    </select>			
+						
+		                </div>
+		              </div>
+		              
+		              
+		             <div class="control-group">
+		                <label class="control-label">1º Premio</label>
+		                <div class="controls">
+						
+									<input id="primeiropremio" name="primeiropremio" class="form-control" type="text" th:value="${jogobicho.primeiropremio}" placeholder="Digite o Primeiro Premio" />
+						
+		                </div>
+		              </div> 
+		              
+		             <div class="control-group">
+		                <label class="control-label">2º Premio</label>
+		                <div class="controls">
+						
+									<input id="segundopremio" name="segundopremio" class="form-control" type="text" th:value="${jogobicho.segundopremio}" placeholder="Digite o Segundo Premio" />
+						
+		                </div>
+		              </div> 
+		              
+		             <div class="control-group">
+		                <label class="control-label">3º Premio</label>
+		                <div class="controls">
+						
+									<input id="terceiropremio" name="terceiropremio" class="form-control" type="text" th:value="${jogobicho.terceiropremio}" placeholder="Digite o Terceiro Premio" />
+						
+		                </div>
+		              </div> 
+		              
+		              
+		             <div class="control-group">
+		                <label class="control-label">4º Premio</label>
+		                <div class="controls">
+						
+									<input id="quartopremio" name="quartopremio" class="form-control" type="text" th:value="${jogobicho.quartopremio}" placeholder="Digite o Quarto Premio" />
+						
+		                </div>
+		              </div> 
+		              
+		              
+		              
+		             <div class="control-group">
+		                <label class="control-label">5º Premio</label>
+		                <div class="controls">
+						
+									<input id="quintopremio" name="quintopremio" class="form-control" type="text" th:value="${jogobicho.quintopremio}" placeholder="Digite Quinto Premio" />
+						
+		                </div>
+		              </div> 
+		              
+		              						 	 
+				                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+							
+									<div class="form-actions">
+										<button type="submit" class="btn btn-sm btn-primary">Cadastrar</button>
+										<a href='javascript:history.back(1)' class="btn btn-sm btn-default" >Voltar</a>
+									</div>
+							
+							</form>
+                                   
+                                   
+                                   
+                                   
+                                   
+								           </div>     
+								                
+								              </div>
+								              
+<!-- 								              <div class="modal-footer pull-left">  -->
+								              
+								              
+								              
+<!-- 								              	<a data-dismiss="" class="btn-sm btn-primary" href="#">Confirma</a> -->
+<!-- 								              	 <a data-dismiss="modal" class="btn-sm btn-warning" href="#">Cancela</a> -->
+								              
+								              
+<!-- 								              </div> -->
+								             </div>
+								             </div>
+           
+                                    </div>                               
+                               
+                                </div>
+                                
+
+			                    <div class="col-md-4">
+			                            <div class="card">
+			                                <div class="card-header card-chart" data-background-color="blue">
+			                                    <div class="ct-chart" id="emailsSubscriptionChartbicho"></div>
+			                                </div>
+			                                <div class="card-content">
+			                                      <h4 class="title">Incidencia de Numeros</h4>
+			                                    <p class="category">Por Ordem Crescente de Inccidencias</p>
+			                                </div>
+			                                <div class="card-footer">
+			                                    <div class="stats">
+			                                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+			                                    </div>
+			                                </div>
+			                            </div>
+			                        </div>
+			                        
+			                        
+  					<div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header card-chart" data-background-color="green">
+                                    <div class="ct-chart" id="dailySalesChartbicho"></div>
+                                </div>
+                                <div class="card-content">
+                                    <h4 class="title">Incidencia Por Bicho</h4>
+                                    <p class="category">
+                                        <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons">access_time</i> updated 4 minutes ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>			                        
+			                        
+			                        
+			                        
+			                        <div class="col-md-4">
+			                            <div class="card">
+			                                <div class="card-header card-chart" data-background-color="red">
+			                                    <div class="ct-chart" id="completedTasksChart"></div>
+			                                </div>
+			                                <div class="card-content">
+			                                     <h4 class="title">Fibonacci</h4>
+			                                    <p class="category">Algoritimo de Proporcao</p>
+			                                </div>
+			                                <div class="card-footer">
+			                                    <div class="stats">
+			                                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+			                                    </div>
+			                                </div>
+			                            </div>
+			                        </div>
+			                        
+			                        <div class="card-content table-responsive">
+                                    <table class="table table-hover table data-table">
+                                        <thead class="card-header" data-background-color="blue">
+                                            <th class="hide">Id</th>
+                                            <th >Data</th>
+                                            <th >Hora</th>
+                                            <th >Banca</th>
+                                            <th >Resultado</th>
+                                            
+                                            
+                                  <div sec:authorize="hasRole('ROLE_ADM')">
+                                   
+                                   <th >OPERACOES</th>
+                                  
+                                  </div>
+                                            
+<!--                                             <th >2º Premio</th> -->
+<!--                                             <th >3º Premio</th> -->
+<!--                                             <th >4º Premio</th> -->
+<!--                                             <th >5º Premio</th> -->
+
+		
+
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="jogobicho: ${jogobichoList}">
+                                                <td th:text="${jogobicho.id}" class="hide">001</td>
+                                                  <td th:text="${#dates.format(jogobicho.data,'dd-MM-yyyy')}">Data</td>
+		                                            <td th:text="${jogobicho.hora}">Hora</td>
+		                                             <td th:text="${jogobicho.banca}">Banca</td>
+		                                            
+		                                            <td th:text="${jogobicho}" >Resultado</td>
+		                                          
+		                                       
+							              <div sec:authorize="hasRole('ROLE_ADM')" >
+	                                              <td class="td-actions">
+	                                              <div >
+                                                        <a  rel="tooltip" title="Informacoes" class="btn btn-muted btn-simple btn-xs" th:href="@{/jogobicho/informacao(id=${jogobicho.id})}">
+                                    						<i class="material-icons">info</i>
+			                       						</a>
+	                       						 
+                                                        <a  rel="tooltip" title="Editar" class="btn btn-muted btn-simple btn-xs" th:href="@{/jogobicho/editar(id=${jogobicho.id})}">
+                                    						<i class="material-icons">mode edit</i>
+			                       						</a>
+	                       								                                            
+		                                            																									
+                                                        <a  rel="tooltip" title="Excluir" class="btn btn-danger btn-simple btn-xs" th:href="@{/jogobicho/delete(id=${jogobicho.id})}">
+                                    						<i class="material-icons">close</i>
+			                       						</a>
+	                       						</div>
+	                       						 	</td>	
+	                       						 
+					                            </div>
+		                                            
+		                                         
+		                                            
+		                                            
+<!-- 		                                            <td th:text="${jogobicho.segundopremio}" >2º Premio</td> -->
+<!-- 		                                            <td th:text="${jogobicho.terceiropremio}" > 3º Premio</td> -->
+<!-- 		                                            <td th:text="${jogobicho.quartopremio}" >4º Premio </td> -->
+<!-- 		                                            <td th:text="${jogobicho.quintopremio}" >5º Premio</td> -->
+		                      
+		 
+
+		
+                                        
+                                            </tr>
+                                           
+                                           
+                                      
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+         
+         
+         						<footer th:replace="fragmentos/footer :: footer">
+						
+						</footer>
+         
+         
+            </div>
+						
+
+
+
+
+					</div>
+
+
+				
+				<div th:replace="fragmentos/footer :: script" style="display:none;"></div>
+				
+		</body>
+
+</html>

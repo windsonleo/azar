@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragmentos/head :: head-css">
+
+</head>
+
+    <title>Movimentacao Usuario</title>
+
+
+
+<body>
+
+ <div class="wrapper">
+	
+		    <div th:replace="fragmentos/side-menu :: side-menu">
+	    	</div>
+
+ <div class="main-panel">
+
+			  	<div th:replace="fragmentos/top-nav :: top-nav">
+				
+				</div>
+	
+		 <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header" data-background-color="blue">
+                                    <h4 class="title">Usuarios</h4>
+                                       <span class="pull-right"> <a href="#myAlert" data-toggle="modal" title="Simular"  class="tip-bottom"> <i class="material-icons">build</i> </a> </span>
+                                     
+                                    <p class="category"> Todos os Usuarios </p>
+           					
+           					
+<!--            					<span class="push-right">  -->
+<!--                                      <a href="#myAlert" data-toggle="modal" data-target="#myAlert" > -->
+<!--                                      	 <i class="material-icons">assessment</i> -->
+<!--                                  	  </a> -->
+<!--                            	  </span>   -->
+                                 	                         
+           <div id="myAlert" class="modal fade">
+<!-- 	            <div class="modal-dialog"> -->
+<!-- 	               <div class="modal-content"> -->
+		              <div class="modal-header">
+		              
+		              
+		              				<div class="card">  
+                                   
+                                   	<div class="card-header" data-background-color="green">
+                                    <h4 class="title">MegaSena</h4>
+                                     
+                                    <p class="category defaut"> Incidencia de Numeros </p>
+                                   
+                                   
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+                                   
+                                    </div>
+		              
+		              
+<!-- 							<h4 class="modal-title text-muted">Numeros Incidentes</h4> -->
+<!-- 		              </div> -->
+								              
+						<div class="modal-body">
+								                
+							<div class="table-responsive">
+                                    <table class="table primary table-hover table-primary data-table" id="incidencia">
+                                        <thead class="text-info">
+                                           
+                                            <th >Numero</th>
+                                            <th >Quantidades</th>
+		
+
+                                        </thead>
+                                        <tbody>
+                                
+                                
+                                   
+                                            <tr th:each="item: ${incidencianumeromegasena}" class="text-muted">
+                                                  <td th:text="${item.key}">01</td>
+		                                            <td th:text="${item.value}">11</td>
+
+                                            </tr>
+                                           
+<!--                                  </div>  -->
+                                      
+                                        </tbody>
+                                    </table>
+								           </div>     
+								                
+								              </div>
+								              
+								              <div class="modal-footer pull-left"> 
+								              
+								              
+								              
+								              	<a data-dismiss="" class="btn-sm btn-primary" href="#">Confirma</a>
+								              	 <a data-dismiss="modal" class="btn-sm btn-warning" href="#">Cancela</a>
+								              
+								             </div>
+								             
+<!-- 								             </div> -->
+								             
+							             </div>
+								           
+							            </div>
+							            </div>
+							            </div>
+							            
+							            
+						<div class="col-lg-3 col-md-3 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header" data-background-color="green">
+                                    <img alt="" th:src="@{/static/img/jogo.png}" class="material-icons"></img>
+                                </div>
+                                <div class="card-content">
+                                    <p class="category">Mega Sena</p>
+                                    <h3 class="title" th:text="${#lists.size(megasenaList)}">49/50
+                                        
+                                    </h3>
+                                    
+                                    <label>Sorteios</label>
+                                    
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <i class="material-icons text-danger">warning</i>
+                                        <a href="#pablo">Get More Space...</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                
+                                
+                                
+                                
+                                
+                                <div class="col-md-4">
+			                            <div class="card">
+			                                <div class="card-header card-chart" data-background-color="red">
+			                                    <div class="ct-chart" id="emailsSubscriptionChart"></div>
+			                                </div>
+			                                <div class="card-content">
+			                                    <h4 class="title">Incidencia de Numeros</h4>
+			                                    <p class="category">Por Ordem Crescente de Inccidencias</p>
+			                                </div>
+			                                <div class="card-footer">
+			                                    <div class="stats">
+			                                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+			                                    </div>
+			                                </div>
+			                            </div>
+			                        </div>
+			                        
+			                        
+                                 <div class="col-md-4">
+			                            <div class="card">
+			                                <div class="card-header card-chart" data-background-color="blue">
+			                                    <div class="ct-chart" id="completedTasksChart"></div>
+			                                </div>
+			                                <div class="card-content">
+                 								 <h4 class="title">Fibonacci</h4>
+			                                    <p class="category">Algoritimo de Proporcao</p>
+			                                </div>
+			                                <div class="card-footer">
+			                                    <div class="stats">
+			                                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+			                                    </div>
+			                                </div>
+			                            </div>
+			                        </div>
+							            
+							            
+							            
+							            
+							            
+							            
+              						
+              						
+<!--               					               <div class="col-sm-2"> -->
+<!--                                             <button class="btn btn-primary btn-block" onclick="demo.showNotification('top','center')">Bottom Center</button> -->
+<!--                                         </div>	 -->
+              						
+              						                     
+<!--                           </div> -->
+                                <div class="card-content table-responsive">
+                                    <table class="table table-hover table data-table">
+                                        <thead class="card-header" data-background-color="blue">
+                                            <th class="hide">Id</th>
+                                            <th >Data</th>
+                                            <th >Concurso</th>
+                                            <th >Numeros</th>
+                                            
+                                      <div sec:authorize="hasRole('ROLE_ADM')">
+			                                   
+                                            <th >OPERACOES</th>
+
+			                                  
+			                            </div> 
+<!--                                             <th >Bola 2</th> -->
+<!--                                             <th >Bola 3</th> -->
+<!--                                             <th >Bola 4</th> -->
+<!--                                             <th >Bola 5</th> -->
+<!--                                             <th>Bola 6</th> -->
+<!--                                             <th >Bola 7</th> -->
+<!--                                             <th>Bola 8</th> -->
+<!--                                             <th >Bola 9</th> -->
+<!--                                             <th >Bola 10</th> -->
+<!--                                             <th  >Bola 11</th> -->
+<!--                                             <th  >Bola 12</th> -->
+<!-- 		                                      <th >Bola 13</th> -->
+		
+<!-- 		                                      <th >Bola 14</th> -->
+<!-- 		                                      <th >Bola 15</th> -->
+<!-- 		                                      <th >Bola 16</th> -->
+<!-- 		                                      <th >Bola 17</th> -->
+<!-- 		                                     <th >Bola 18</th> -->
+<!-- 		                                      <th >Bola 19</th> -->
+<!-- 		                                       <th >Bola 20</th> -->
+		                                     
+<!-- 		                                      <th >G15</th> -->
+<!-- 		                                      <th >G14</th> -->
+<!-- 		                                      <th >G13</th> -->
+<!-- 		                                      <th  >G12</th> -->
+		
+
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="megasena: ${megasenaList}">
+                                                <td th:text="${megasena.id}" class="hide">001</td>
+                                                  <td th:text="${#dates.format(megasena.data,'dd-MM-yyyy')}">Data</td>
+		                                            <td th:text="${megasena.concurso}">Concurso</td>
+		                                            <td th:text="${megasena}" >Numeros</td>
+		                                            
+		                                            
+		                                        <div sec:authorize="hasRole('ROLE_ADM')">
+					                                   
+	                                              <td class="td-actions text-left">
+	                                              
+                                                <div >
+                                                        <a  rel="tooltip" title="Informacoes" class="btn btn-muted btn-simple btn-xs" th:href="@{/megasena/informacao(id=${megasena.id})}">
+                                    						<i class="material-icons">info</i>
+			                       						</a>
+	                       						 
+                                                        <a  rel="tooltip" title="Editar" class="btn btn-muted btn-simple btn-xs" th:href="@{/megasena/editar(id=${megasena.id})}">
+                                    						<i class="material-icons">mode edit</i>
+			                       						</a>
+	                       								                                            
+		                                            
+                                                        <a rel="tooltip" title="Excluir" class="btn btn-danger btn-simple btn-xs" th:href="@{/megasena/delete(id=${megasena.id})}">
+                                    						<i class="material-icons">close</i>
+			                       						</a>
+	                       						</div>
+	                       						 	</td>
+					                                  
+					                            </div>		                                            
+		                                            
+		                                            
+<!-- 		                                            <td th:text="${megasena.segundadezena}" >Bola 2</td> -->
+<!-- 		                                            <td th:text="${megasena.terceiradezena}" >Bola 3</td> -->
+<!-- 		                                            <td th:text="${megasena.quartadezena}" >Bola 4</td> -->
+<!-- 		                                            <td th:text="${megasena.quintadezena}" >Bola 5</td> -->
+<!-- 		                                            <td th:text="${megasena.sextadezena}" >Bola 6</td> -->
+<!-- 		                                            <td th:text="${megasena.setimadezena}" >Bola 7</td> -->
+<!-- 		                                            <td th:text="${megasena.oitavadezena}" >Bola 8</td> -->
+<!-- 		                                            <td th:text="${megasena.nonadezena}" >Bola 9</td> -->
+<!-- 		                                            <td th:text="${megasena.decimadezena}" >Bola 10</td> -->
+<!-- 		                                            <td th:text="${megasena.decimaprimeiradezena}" >Bola 11</td> -->
+<!-- 		                                            <td th:text="${megasena.decimasegundadezena}" >Bola 12</td> -->
+<!-- 				                                      <td th:text="${megasena.decimaterceiradezena}" >Bola 13</td> -->
+				
+<!-- 				                                      <td th:text="${megasena.decimaquartadezena}" >Bola 14</td> -->
+<!-- 				                                      <td th:text="${megasena.decimaquintadezena}" >Bola 15</td> -->
+
+<!-- 				                                      <td th:text="${megasena.decimasextadezena}" >Bola 16</td> -->
+<!-- 				                                      <td th:text="${megasena.decimasetimadezena}" >Bola 17</td> -->
+<!-- 				                                      <td th:text="${megasena.decimaoitavadezena}" >Bola 18</td> -->
+<!-- 				                                      <td th:text="${megasena.decimanonadezena}" >Bola 19</td> -->
+<!-- 				                                      <td th:text="${megasena.vigesimadezena}" >Bola 20</td> -->
+
+
+
+
+<!-- 				                                     
+
+
+ <td th:text="${megasena.G15}" >G15</td> -->
+<!-- 				                                      <td th:text="${megasena.G14}" >G14</td> -->
+<!-- 				                                      <td th:text="${megasena.G13}" >G13</td> -->
+<!-- 				                                      <td th:text="${megasena.G11}" >G12</td> -->
+		
+                                        
+                                            </tr>
+                                           
+                                           
+                                      
+                                        </tbody>
+                                    </table>
+                                </div>
+<!--                             </div> -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+						
+
+						<footer th:replace="fragmentos/footer :: footer">
+						
+						</footer>
+
+
+					</div>
+
+
+				</div>
+				
+				</div>
+				<div th:replace="fragmentos/footer :: script" style="display:none;"></div>
+				
+				
+				
+		</body>
+
+</html>

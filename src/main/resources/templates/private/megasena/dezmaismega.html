@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragmentos/head :: head-css">
+
+</head>
+
+    <title>Dez MAIS Mega Sena </title>
+
+
+
+<body>
+
+ <div class="wrapper">
+	
+		    <div th:replace="fragmentos/side-menu :: side-menu">
+	    	</div>
+
+ <div class="main-panel">
+
+			  	<div th:replace="fragmentos/top-nav :: top-nav">
+				
+				</div>
+	
+		 <div class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header" data-background-color="blue">
+                                    <h4 class="title">DEZ MAIS Mega Sena  </h4>
+                                    <p class="category">Dados</p>
+                                </div>
+                                
+                             <div class="card-content table-responsive">
+                                
+                                 <table class="table table-hover table data-table">
+                                        <thead class="card-header" data-background-color="blue">
+                                            <th class="hide">Id</th>
+                                            <th >NUMERO</th>
+                                            <th >QTD VEZES</th>
+                                            
+                                            </thead>
+                                        <tbody>
+                                  <tr th:each="dez: ${mapdezincidentesmegasena}" class="text-muted">
+			 					 <td th:text="${dez.key}">01</td>
+			 					 <td th:text="${dez.value}">01</td>
+			 					 
+			 			</tr>
+                                           
+                                           
+                                      
+                                        </tbody>
+                                    </table>
+
+						</div>
+						</div>
+                        </div>
+                        
+                       </div>
+                       
+<!--                         <div class="col-md-4"> -->
+<!--                             <div class="card card-profile"> -->
+<!--                                 <div class="card-avatar"> -->
+<!--                                     <a href="#pablo"> -->
+<!--                                         <img class="img" src="../img/faces/sof.jpg"  th:src="${usuario.foto}"/> -->
+<!--                                     </a> -->
+<!--                                 </div> -->
+<!--                                 <div class="content"> -->
+<!--                                     <h6 class="category text-gray">Usuario Roles: <p th:text="${usuario.roles}">roles</p> </h6> -->
+<!--                                     <h4 class="card-title" th:text="${usuario.username}">Alec Thompson</h4> -->
+<!--                                     <p class="card-content"> -->
+<!--                                         Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is... -->
+<!--                                     </p> -->
+<!--                                     <a href="#pablo" class="btn btn-info btn-round">Mudar Foto</a> -->
+                               
+<!--                                    <div sec:authorize="hasRole('ROLE_ADM')"> -->
+<!-- 						  				<span class="text-danger">This content is only shown to administrators.</span> -->
+<!--                                     <a th:href="@{/usuario/cadastro}" class="btn btn-info btn-round ">Adicionar Usuario</a> -->
+<!--                     			 </div> -->
+                               
+<!--                                 </div> -->
+                            
+
+                            
+                            
+<!--                             </div> -->
+<!--                         </div> -->
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+						
+
+						<footer th:replace="fragmentos/footer :: footer">
+						
+						</footer>
+
+
+					</div>
+
+
+<!-- 				</div> -->
+				
+				<div th:replace="fragmentos/footer :: script" style="display:none;"></div>
+				
+		</body>
+
+</html>

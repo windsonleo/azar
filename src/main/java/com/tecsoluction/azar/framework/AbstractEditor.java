@@ -1,0 +1,28 @@
+package com.tecsoluction.azar.framework;
+
+import java.beans.PropertyEditorSupport;
+
+/**
+ * Created by clebr on 17/07/2016.
+ */
+public class AbstractEditor<Entity> extends PropertyEditorSupport {
+
+    private final AbstractEntityService<Entity> service;
+
+    public AbstractEditor(final AbstractEntityService<Entity> service) {
+        this.service = service;
+    }
+
+    @Override
+    public void setAsText(final String id) {
+
+        if (id.equalsIgnoreCase("")) {
+            this.setValue(null);
+        } else {
+            final Entity entity = service.findOne(Long.parseLong(id));
+
+            this.setValue(entity);
+        }
+    }
+
+}
