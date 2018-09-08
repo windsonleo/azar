@@ -1,9 +1,5 @@
 package com.tecsoluction.azar.controler;
 
-import static org.mockito.Matchers.longThat;
-
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -130,22 +126,22 @@ public class HomeController {
     	
     	if(lotofacil == null){
     		
-    		lotofacil = new com.tecsoluction.azar.entidade.Lotofacil();
+    		lotofacil = new Lotofacil();
     	}
     	
     	if(lotomania == null){
     		
-    		lotomania = new com.tecsoluction.azar.entidade.LotoMania();
+    		lotomania = new LotoMania();
     	}
     	
     	if(megasena == null){
     		
-    		megasena = new com.tecsoluction.azar.entidade.MegaSena();
+    		megasena = new MegaSena();
     	}
     	
     	if(jogobicho == null){
     		
-    		jogobicho = new com.tecsoluction.azar.entidade.JogoBicho();
+    		jogobicho = new JogoBicho();
     	}
     	   	
     	
