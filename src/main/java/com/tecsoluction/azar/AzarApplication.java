@@ -28,22 +28,23 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 
 
-@SpringBootApplication(scanBasePackages = "com.tecsoluction.azar")
-@EntityScan(basePackages = { "com.tecsoluction.azar.entidade" })
-@EnableJpaRepositories(basePackages = { "com.tecsoluction.azar.dao" })
-@ComponentScan(basePackages = {"com.tecsoluction.azar.controller"})
-@Import({MyWebMvcConfigurerAdapter.class,MyWebSecurityConfigurerAdapter.class})
-public class AzarApplication extends SpringBootServletInitializer {
+//@SpringBootApplication(scanBasePackages = "com.tecsoluction.azar")
+//@EntityScan(basePackages = { "com.tecsoluction.azar.entidade" })
+//@EnableJpaRepositories(basePackages = { "com.tecsoluction.azar.dao" })
+//@ComponentScan(basePackages = {"com.tecsoluction.azar.controller"})
+//@Import({MyWebMvcConfigurerAdapter.class,MyWebSecurityConfigurerAdapter.class})
+@SpringBootApplication
+public class AzarApplication{
 
 	
 	
 	
 	
-	
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(AzarApplication.class);
-    }
+//	
+//    @Override
+//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+//        return application.sources(AzarApplication.class);
+//    }
     
     
     
@@ -130,17 +131,17 @@ public class AzarApplication extends SpringBootServletInitializer {
 //    }
 //    
     
-    @Autowired
-    private HttpEncodingProperties httpEncodingProperties;
-
-    @Bean
-    public OrderedCharacterEncodingFilter characterEncodingFilter() {
-        OrderedCharacterEncodingFilter filter = new OrderedCharacterEncodingFilter();
-        filter.setEncoding(this.httpEncodingProperties.getCharset().name());
-        filter.setForceEncoding(this.httpEncodingProperties.isForce());
-        filter.setOrder(Ordered.HIGHEST_PRECEDENCE);
-        return filter;
-    }
+//    @Autowired
+//    private HttpEncodingProperties httpEncodingProperties;
+//
+//    @Bean
+//    public OrderedCharacterEncodingFilter characterEncodingFilter() {
+//        OrderedCharacterEncodingFilter filter = new OrderedCharacterEncodingFilter();
+//        filter.setEncoding(this.httpEncodingProperties.getCharset().name());
+//        filter.setForceEncoding(this.httpEncodingProperties.isForce());
+//        filter.setOrder(Ordered.HIGHEST_PRECEDENCE);
+//        return filter;
+//    }
     
     
 //    @Bean
