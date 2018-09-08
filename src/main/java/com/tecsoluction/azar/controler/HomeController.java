@@ -22,6 +22,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.tecsoluction.azar.entidade.JogoBicho;
+import com.tecsoluction.azar.entidade.LotoMania;
+import com.tecsoluction.azar.entidade.Lotofacil;
+import com.tecsoluction.azar.entidade.MegaSena;
 import com.tecsoluction.azar.entidade.Usuario;
 import com.tecsoluction.azar.servico.JogoBichoServicoImpl;
 import com.tecsoluction.azar.servico.LotoFacilServicoImpl;
@@ -42,25 +46,25 @@ public class HomeController {
     @Autowired
     private  LotoFacilServicoImpl lotofacilService;
     
-    private List<com.tecsoluction.azar.entidade.Lotofacil> lotofacils;
+    private List<Lotofacil> lotofacils;
     
-    private com.tecsoluction.azar.entidade.Lotofacil lotofacil;
+    private Lotofacil lotofacil;
 
     
     @Autowired
     private  LotoManiaServicoImpl lotomaniaService;
     
-    private List<com.tecsoluction.azar.entidade.LotoMania> lotomanias;
+    private List<LotoMania> lotomanias;
     
-    private com.tecsoluction.azar.entidade.LotoMania lotomania;
+    private LotoMania lotomania;
     
     
     @Autowired
     private  MegaSenaServicoImpl megasenaService;
     
-    private List<com.tecsoluction.azar.entidade.MegaSena> megasenas;
+    private List<MegaSena> megasenas;
     
-    private com.tecsoluction.azar.entidade.MegaSena megasena;
+    private MegaSena megasena;
     
     
     
@@ -69,7 +73,7 @@ public class HomeController {
     
 //    private List<com.tecsoluction.azar.entidade.Usuario> megasenas;
     
-    private com.tecsoluction.azar.entidade.Usuario usuario;
+    private Usuario usuario;
     
     private Estatistica estatistica;
     
@@ -80,8 +84,8 @@ public class HomeController {
     
     @Autowired
     private  JogoBichoServicoImpl jogobichoService;    
-    private com.tecsoluction.azar.entidade.JogoBicho jogobicho;
-    private List<com.tecsoluction.azar.entidade.JogoBicho> jogobichos;
+    private JogoBicho jogobicho;
+    private List<JogoBicho> jogobichos;
 
     
     
