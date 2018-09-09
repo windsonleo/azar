@@ -30,7 +30,14 @@
                                 <div class="card-header" data-background-color="blue">
                                     <h4 class="title">LotoFacil</h4>
                                    
-a
+                                    <div sec:authorize="hasRole('ROLE_ADM')">
+										<span class="pull-right">  This content is only shown to administrators.
+									    <a th:href="@{/lotofacil/dezmaismega}" data-toggle="modal" > <i class="material-icons" title="Ver os Dez mais ">mode edit</i> </a>
+									    <a href="#myAlert" data-toggle="modal" > <i class="material-icons">build</i> </a> 
+									    
+									    </span>
+									
+									</div> 
 									 
                                     <p class="category"> Todos os Sorteios </p>
                                     
@@ -105,7 +112,7 @@ a
                          <div class="col-lg-3 col-md-3 col-sm-6">
                             <div class="card card-stats">
                                 <div class="card-header" data-background-color="purple">
-                                    <img alt="" th:src="@{/static/img/jogo.png}" class="material-icons"></img>
+                                    <img alt="" th:src="@{/img/jogo.png}" class="material-icons"></img>
                                 </div>
                                 <div class="card-content">
                                     <p class="category">LotoFacil</p>
