@@ -154,7 +154,8 @@
                             <div class="card card-profile">
                                 <div class="card-avatar">
                                     <a href="#pablo">
-                                        <img class="img" src="../img/faces/sof.jpg"  th:src="${usuario.foto}"/>
+                                        <img class="img" src="../img/faces/sof.jpg" 
+                                        th:src="@{/img/{fotoc}(fotoc=${usuario.foto})}"/>
                                     </a>
                                 </div>
                                 <div class="content">
